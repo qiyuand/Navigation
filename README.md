@@ -22,4 +22,6 @@
 - The inputs to the module are the coordinates of each object in the scene, which are between 0 and 1, the category of each object, and the instruction. Before sending them into the model, we first map all the words in the category and instruction to their corresponding index in the `./data/vocabulary.json`.
 > `output = self.RN(objs_coordinate, objs_category_idx, instruction_idx)`
 - Inside the module, we use the same embedding layer to get the word vector for each word in the category and instruction. For simplicity, we did not use LSTM, and the embedding layer is randomly initialized. The maximum length of instruction is 10, and the embedding dimension is 128. We simply concatenate the embedding of every word to get the feature of the whole instruction, which should have the length of 128 * 10 = 1280.
-- 
+- Then we did the same thing as the paper above.
+![model](https://github.com/qiyuand/Relation-Module/blob/master/demo/model.png)
+
